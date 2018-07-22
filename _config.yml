@@ -1,2 +1,13 @@
-baseurl: ''
+title: 王鲜申的 blog
+email: thewangcj@gmail.com
+description: 执迷不悔
+
+baseurl: "" 
+url: thewangcj.top
+twitter_username: thewangcj
+github_username:  thewangcj
+
 markdown: kramdown
+
+
+
