@@ -1,3 +1,5 @@
+encoding: utf-8
+
 title: 王鲜申的 blog
 email: thewangcj@gmail.com
 description: 执迷不悔
@@ -7,7 +9,22 @@ url: thewangcj.top
 twitter_username: thewangcj
 github_username:  thewangcj
 
+highlighter: rouge
+paginate: 3
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: [jekyll-paginate]
 
 
 
