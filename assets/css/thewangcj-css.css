@@ -1,8 +1,11 @@
 a {
 	display: block;
 	font-size: 30px;
+	text-decoration: none;
 }
 
 body {
 	margin: 40px;
+	font-family:"Microsoft Yahei";
+	/*line-height: 1.5em;*/
 }
