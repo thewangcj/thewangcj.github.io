@@ -1,11 +1,33 @@
-a {
+.index-a {
 	display: block;
-	font-size: 30px;
+	font-size: 25px;
 	text-decoration: none;
 }
 
 body {
 	margin: 40px;
 	font-family:"Microsoft Yahei";
-	/*line-height: 1.5em;*/
+	line-height: 1.5em;
+}
+
+#index-navi {
+	height: 35px;
+}
+
+#index-navi>ul{
+	float: left;
+	width: 100%;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+#index-home{
+	float: left;
+	width: 75%;
+}
+
+#index-about{
+	float: left;
+	width: 25%;
 }

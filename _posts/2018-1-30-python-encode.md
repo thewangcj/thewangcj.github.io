@@ -21,7 +21,7 @@ tags:
 
 ---
 在 GitHub 上看到有人把 GitHub 当成收藏夹，放了许多轻音乐，看的我心痒难耐，fork 了一个，项目在
-[maitian](https://github.com/thewangcj/maitian)，或者你可以通过[麦田](https://thewangcj.top/maitian)
+[maitian](https://github.com/thewangcj/maitian)，或者你可以通过[麦田](https://thewangcj.top/maitian)访问。
 
 这其实是个很简单的项目，只需要用到一些简单的 HTML CSS 技术，但是原作者是直接把音乐的文件名写在 js 文件里，
 一个个复制有些麻烦，于是想用 python 完成这件事，说干就干，然后问题来了，用 <code>os.listdir</code>遍历后再Windows cmd 下测试，然后就报错了->->

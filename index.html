@@ -2,17 +2,25 @@
 title: thewangcj's blog
 layout: default
 ---
+<div id="index-navi">
+  <ul>
+    <li><a id="index-home"href="{{ site.baseurl }}">{{ site.title }}</a></li>
+    <li><a id="index-about" href="{{ site.baseurl }}/about.html">关于我</a></li>
+  </ul>
+</div>
 
-{{ site.title }}
 
 <!-- 遍历分页后的文章 -->
-{% for post in paginator.posts %}
-  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-  <p class="author">
-    <span class="date">{{ post.date| date_to_string }}</span>
-  </p>
-  <p>{{ post.excerpt }}</p>
-{% endfor %}
+<div>
+  {% for post in paginator.posts %}
+    <h1><a class="index-a" href="{{ post.url }}">{{ post.title }}</a></h1>
+    <p class="author">
+      <span class="date">{{ post.date| date_to_string }}</span>
+    </p>
+    <p>{{ post.excerpt }}</p>
+  {% endfor %}
+</div>
+
 
 <!-- Pager -->
 {% if paginator.total_pages > 1 %}
