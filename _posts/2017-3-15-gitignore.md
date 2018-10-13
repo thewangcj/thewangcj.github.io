@@ -1,5 +1,5 @@
 ---
-layout:     default
+layout:     article
 
 title:      ".gitignore配置学习"
 

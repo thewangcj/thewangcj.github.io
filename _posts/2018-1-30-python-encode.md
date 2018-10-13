@@ -1,5 +1,5 @@
 ---
-layout:     default
+layout:     article
 
 title:      "记录一次 Windows 下 python 编码问题"
 

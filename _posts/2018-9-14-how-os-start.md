@@ -1,5 +1,5 @@
 ---
-layout:     default
+layout:     article
 
 title:      "简述计算机的启动过程"
 
