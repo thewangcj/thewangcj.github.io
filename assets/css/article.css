@@ -1,6 +1,7 @@
 body {
-	font-family:"Microsoft Yahei";
+	font-family:"lucida grande", "lucida sans unicode",lucida, helvetica,"Microsoft Yahei", sans-serif;
 	line-height: 1.7;
+	font-size: 18px;
 }
 
 a {
@@ -8,6 +9,7 @@ a {
 }
 
 #main{
-	margin-left: 15%;
-	margin-right: 18%;
+	margin: 1% 14%;
+	padding: 2% 8% 4% 8%; 
+	border: 1px solid LightGrey;
 }
