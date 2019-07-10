@@ -8,9 +8,12 @@ a {
 	text-decoration: none;
 }
 
-#main{
+#main,#gitalk-container{
 	margin: 1% 14%;
-	padding: 2% 8% 4% 8%; 
+	padding: 2% 8% 4% 8%;
+}
+
+#main {
 	border: 1px solid LightGrey;
 }
 
