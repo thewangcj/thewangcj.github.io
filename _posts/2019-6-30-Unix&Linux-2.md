@@ -23,7 +23,7 @@ tags:
 tips: 如果使用 man 查询是出现问题可能是你的 Linux 发行版没有完整的 man pages,可以通过
 <pre><code class="Bash">sudo apt install manpages
 sudo apt install manpages-dev
-</code></pre> 安装
+</code></pre> 安装。
 
 2.1
 相比于 who 命令， w 还提供了当前时间、系统运行时间、有多少登录用户以及过去1,5和15分钟的系统负载平均值。
@@ -132,7 +132,8 @@ sudo apt install manpages-dev
 
 2.9 
 代码如下：
-<pre><code class="C++">int main(int argc, char const *argv[])
+<pre><code class="C++">#include&lt;stdio.h&gt;
+int main(int argc, char const *argv[])
 {
   int rw_fd, n_chars;
     if ((rw_fd = open(argv[1], O_RDWR)) == -1)
