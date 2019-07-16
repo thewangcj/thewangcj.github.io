@@ -25,14 +25,14 @@ tips: 如果使用 man 查询是出现问题可能是你的 Linux 发行版没�
 sudo apt install manpages-dev
 </code></pre> 安装。
 
-2.1
+#### 2.1
 相比于 who 命令， w 还提供了当前时间、系统运行时间、有多少登录用户以及过去1,5和15分钟的系统负载平均值。
 接下来的每一行还提供了 idle time、JCPU、PCPU 以及当前进程的位置。其中 JCPU 是由连接到 TTY 所有进程使用的时间。它不包括过去的后台任务，但包括当前正在运行的后台任务。PCPU 是 what 字段表示的进程使用的时间。这些信息来自与 `var/run/utmp` 和 `proc`。
 
-2.2
+#### 2.2
 查阅了一下 man,描述如下：Furthermore, the terminal name ~ with username  shutdown or reboot indicates a system shutdown or reboot and the pair of terminal names |/} logs the old/new system time when date(1) changes it.  wtmp is maintained  by  login(1),  init(1), and some versions of getty(8) (e.g., mingetty(8) or agetty(8)).  None of these programs creates the file,  so if it is removed, record-keeping is turned off.
 
-2.3
+#### 2.3
 执行
 
 <pre><code class="Bash">cp who0.c /dev/tty</code></pre>
@@ -40,7 +40,7 @@ sudo apt install manpages-dev
 <pre><code class="Bash">cp /dev/tty test</code></pre>
 在终端输入字符，按下 `Ctrl+D` 结束输入，输入的内容全部都在 test 文件中。
 
-2.4
+#### 2.4
 在我的 deepin 上，`FILE` 在 `stdio.h` 中定义为 
 <pre><code class="C++">typedef struct _IO_FILE FILE; </code></pre> 
 `_IO_FILE` 在 `libio.h` 中定义为
@@ -85,10 +85,10 @@ sudo apt install manpages-dev
 };</code></pre>
 其中 `_IO_buf_base` 和 `_IO_buf_end` 类似于 `utmplib.c` 中的 `utmpbuf`，`_IO_read_ptr` 类似于 `cur_rec` ，`_IO_read_ptr` 减去 `_IO_read_base` 就类似与 `num_recs`。
 
-2.5
+#### 2.5
 通过调用 `fsync` 函数可以缓冲区的内容写到文件中。
 
-2.6
+#### 2.6
 代码如下：
 
 <pre><code class="C++">int main(int argc, char const *argv[])
@@ -124,13 +124,13 @@ sudo apt install manpages-dev
 }</code></pre>
 运行后fd0 正常显示，fd2 显示的内容显示 fd1 写入的内容。
 
-2.7
+#### 2.7
 `man man` 命令可以查看 man 的各种用法，一共九个章节，每个页面包含NAME,概述(SYNOPSIS),配置(CONFIGURATION),描述(DESCRIPTION),选项(OPTIONS),退出状态(EXIT STATUS),返回值(RETURN VALUE),错误(ERRORS),环境(ENVIRONMENT),文件(FILES),  版本(VERSIONS),符合标准(CONFORMING TO),注(NOTES),缺陷(BUGS),示例(EXAMPLE),作者(AUTHORS)和见(SEE ALSO).
 
-2.8
+#### 2.8
 `ut_addr_v6` 保存远程主机的网络地址，`__glibc_reserved` 是保留空间，以待未来使用。`ut_session` 是Session ID, used for windowing. 
 
-2.9 
+#### 2.9 
 代码如下：
 <pre><code class="C++">#include&lt;stdio.h&gt;
 int main(int argc, char const *argv[])
