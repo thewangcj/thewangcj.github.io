@@ -80,3 +80,13 @@ a {
 	font-size: 13px;
 	color: #ccc;
 }
+
+.pagination em {
+	color: #eee;
+	
+}
+
+.pagination {
+	margin-right: 30%;
+	text-align: center;
+}

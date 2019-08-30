@@ -24,6 +24,7 @@ tips: 如果使用 man 查询是出现问题可能是你的 Linux 发行版没�
 <pre><code class="Bash">sudo apt install manpages
 sudo apt install manpages-dev
 </code></pre> 安装。
+<!--more-->
 
 #### 2.1
 相比于 who 命令， w 还提供了当前时间、系统运行时间、有多少登录用户以及过去1,5和15分钟的系统负载平均值。

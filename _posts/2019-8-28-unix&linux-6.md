@@ -1,0 +1,39 @@
+---
+layout:     article
+
+title:      "Unix/Linux 编程实践教程第六章习题"
+
+subtitle:   ""
+
+date:       2019-8-28
+
+author:     "thewangcj"
+
+header-img: ""
+
+catalog: false
+
+tags:
+    - Linux C
+---
+
+> “仅供参考”
+
+------
+tips: 这一章习题倒是少，练习题多到头皮发麻。。。
+<!--more-->
+
+#### 6.1
+`tr`命令用于转换或删除文件中的字符，详细的用法可以参考
+[Linux tr命令](https://www.runoob.com/linux/linux-comm-tr.html),至于不接受命令行指定文件，我想是因为标准输入输出可以被重定向到任何类型的链接上，包括文件，所以没有必要接受命令行指定文件。这样只考虑标准输入输出降低了程序编写的难度，相应的，用户使用起来就相对麻烦一些，当然，这只是我的猜测，可能不对。除了`tr`,还有`colrm`工具。
+
+### 6.2
+对于磁盘文件而言，设置`O_NODELAY`仅仅改变了文件描述符属性的一个 bit，除此之外没有任何影响，这是因为磁盘文件在任何时候都是可读可写的,这在`POSIX`标准中有明确说明.
+阻塞和非阻塞的区别在于请求不能立即得到应答，需要等待，那就是阻塞；否则可以理解为非阻塞，根据上面的定义，磁盘文件本来就是非阻塞的，所以`O_NODELAY`没有意义。
+对于`socket`而言，网络上的数据到达的时间是不确定的，不是任何时候都有数据的，和磁盘文件不一样，这种情况下设置`O_NODELAY`才有意义。
+**tips:**这道题以我目前的水平回答的还不是很准确，主要是总是把`非阻塞`和`异步`混为一同，比如给磁盘文件设置`O_NODELAY`就有种效率肯定提升了，是`异步`操作的感觉，其实这是错误的，[处理 IO 的时候，阻塞和非阻塞都是同步 IO](https://www.zhihu.com/question/19732473)，实际上要解决大量读写磁盘文件的问题，[只有使用多线程或者异步IO](https://www.remlab.net/op/nonblock.shtml)。
+
+参考资料:  
+[Non-blocking I/O with regular files）](https://www.remlab.net/op/nonblock.shtml)  
+[怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473)  
+[为什么用non-blocking的方式读写磁盘文件无意义？](http://cache.baiducontent.com/c?m=9f65cb4a8c8507ed19fa950d100b8738440197634b86914323c3933fcf331d5c113ba3e870794f59ce963c215afe170bf7a6613464587ef686cb8e48dfbd972c249c6269304a891d4f8f0eaebb167b9c71c94de9de0e97bce74394b9a3d4c82522dd52756df1879c2b0603ba1ee76046&p=8b2a970691b111a05bed9228470ac4&newp=882a9645d09e18e806fec7710f4d8c231610db2151d4da166b82c825d7331b001c3bbfb42327100fd1c37c650ba84c58eef03774350923a3dda5c91d9fb4c57479d57e732e0f&user=baidu&fm=sc&query=nonblock+%B4%C5%C5%CC%CE%C4%BC%FE&qid=b7821e320000ff2b&p1=1)

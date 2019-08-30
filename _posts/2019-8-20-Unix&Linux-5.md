@@ -1,0 +1,143 @@
+---
+layout:     article
+
+title:      "Unix/Linux 编程实践教程第五章习题"
+
+subtitle:   ""
+
+date:       2019-8-20
+
+author:     "thewangcj"
+
+header-img: ""
+
+catalog: false
+
+tags:
+    - Linux C
+---
+
+> “仅供参考”
+
+------
+tips: 这一章的习题是真的多，花费了我许多时间，说实话，这本书的习题难度对我而言还是挺大的。这里有一些小建议，看的时候可以同时参考其他书，我参考的是《UNIX环境高级编程》和《Linux C编程一站式学习》，第二本我在最底下留下了链接，是在线版本的。然后这一章的很多题还是不太懂，如果你知道答案欢迎评论告诉我，谢谢。
+<!--more-->
+
+#### 5.2
+现在的`biff`命令是用来控制命令行环境下有新邮件时是否提示，和作者的意思似乎不太一样……
+
+
+### 5.3
+试了一下， `ln` 只能创建设备文件的软链接，
+
+#### 5.4
+使用`mknod`重新创建，比如
+<pre><code class="Bash">sudo mknod /dev/ttytest c 5 0</code></pre>
+其中`c`表示字符设备，后面的两个数字分别是主设备号和从设备号。
+
+#### 5.5
+这是一个排列组合问题，但是有个条件是`lseek` 操作要在`write`之前完成，所以并不是 4x3x2 种情况，而是 6 种可能的组合，分别是：用户A、B 顺序定位写入操作的两种情况、用户A和B定位后完成写入的四种情况，前一种结果是正确写入，后一种是A覆盖B或者B覆盖A。
+
+#### 5.6
+在 `do_sys_open` 函数中调用 `build_open_flags`函数，其中
+<pre><code class="Bash">if (flags & O_APPEND)
+    acc_mode |= MAY_APPEND;</code></pre>
+校验了并设置了 `O_APPEND`。
+我查阅的是`Linux 2.6`的代码，在 `mm\filemap.c`文件中有一个函数`_generic_file_aio_write`，Linux 大多数文件系统的 write 函数都调用这个函数，其中调用了 `generic_write_checks`函数，其中
+<pre><code class="Bash">if (file->f_flags & O_APPEND)
+    *pos = i_size_read(inode);</code></pre>
+表明如果发现文件是以追加方式打开的，则将从 inode 中读取到的最新文件大小作为偏移量，从而实现了自动定位。
+
+#### 5.7
+这个问题有点复杂，我没有搞懂，推荐一篇文章
+
+
+### 5.8
+这里我写了一段简答的代码测试了一下，代码写的比较烂，多多包涵
+```c
+#include <stdio.h>;
+#include <string.h>;
+#include <stdlib.h>;
+int main(int argc, char const *argv[])
+{
+    int result;
+    char str1[] = "first string\n";
+    char str2[] = "second string\n";
+    FILE *file1 = fopen("test", "a");
+    if (file1 < 0)
+    {
+        perror("fopen error");
+        exit(1);
+    }
+    FILE *file2 = fopen("test", "a");
+    if (file2 < 0)
+    {
+        perror("fopen error");
+        exit(1);
+    }
+    result = fwrite(str1, strlen(str1), 1, file1);
+    result = fwrite(str2, strlen(str2), 1, file2);
+    result = fwrite(str1, strlen(str1), 1, file1);
+    result = fwrite(str2, strlen(str2), 1, file2);
+    fclose(file1);
+    fclose(file2);
+    return 0;
+}
+```
+运行后结果如下：
+<pre><code>first string
+first string
+second string
+second string</code></pre> 
+从结果上来看 `fopen`仅仅是在打开文件后定位文件的末尾，每次都是在此基础上写入的。
+
+### 5.9
+在我的`deepin15.11`上分别输出：
+1. echo is on , since its bit is 1
+2. bash: /dev/lp: 没有那个文件或目录
+3. tcgetattr: Inappropriate ioctl for device
+4. bash: tty: 没有那个文件或目录
+
+### 5.10
+我这里两个 tty 分别连接到 `/dev/pts/1` 和 `/dev/pts/2`，按照书上的步骤第四步显示回显开启，第五步显示回显关闭。
+使用 stty 也是一样，至于原因我还不知道......
+
+
+### 5.13
+查看了`APUE`相关章节，发现有三种 O_SYNC，`O_SYNC`要求等待数据和属性都写入才返回，`O_DSYNC`只要求等待数据写入，`O_RSYNC`要求读取时缓存中的所有内容全部读取完才返回，至于习题中只要求 i-节点也就是属性的没有找到。
+
+### 5.14
+向终端文件写入数据就是把数据发送到设备，权限写意味着允许向终端发送数据（书上原话）。那么读权限就意味着允许接受终端数据。
+可是我设置了权限以后向 `ls` 这样的命令可以使用，`who > /dev/pts/1` 就提示权限不足了。
+
+### 5.15 
+不支持 read 和 write 的没找到，不支持 lseek 的有 `gpmctl`.
+
+
+### 5.16
+没看懂题目
+
+### 5.17
+还是没看懂题目
+
+### 5.18
+当我们在 shell 下运行 `ls` 这样的命令的时候，实际上系统会先调用`fork`创建一个子进程，然后在调用`exec`运行`ls`程序。这个子进程的进程控制块(`PCB`)是根据父进程复制而来的，所以其中控制终端的信息是一样的，因此终端处于无回显状态。而每次打开同一个文件返回的文件描述符是不一样的，是相互独立的，所以不能自动获得自动添加模式。
+
+### 519
+这道题想通过把终端的标准输出设置为`O_APPEND`,结果没有成功......
+
+### 5.20
+通过`fcntl`设置的都是当前进程如何访问设备或文件的访问控制属性，例如读、写、追加、非阻塞、加锁   等，但并不设置文件或设备本身的属性，例如文件的读写权限、串口波特率等。`ioctl`函数用于设置某些设备本身的属性，例如串口波特率、终端窗口大小。
+
+### 5.21
+`/dev/null`设备文件只有一个作用，往它里面写任何数据都被直接丢弃。因此保证了该命令执行时屏幕上没有任何输出，既不打印正常信息也不打印错误信息，让命令安静地执行，这种写法在 Shell 脚本中很常见。
+`/dev/zero`是“零”设备，可以无限的提供空字符（`0x00`，`ASCII`代码`NUL`），常用来生成一个特定大小的文件。
+除此之外还有`/dev/random`，随机数设备，提供不间断的随机字节流，生随机数据依赖系统中断，当系统中断不足时，`/dev/random`设备会“挂起”，因而产生数据速度较慢，但随机性好；还有一个类似的叫`/dev/urandom`，不依赖系统中断，数据产生速度快，但随机性较低。
+
+
+参考资料:  
+[深入解析Linux内核I/O剖析（open,write实现）](https://www.cnblogs.com/zengyiwen/p/6019705.html)  
+[rename代码阅读（linux 3.10.104）](https://blog.csdn.net/geshifei/article/details/81482660)  
+[Linux C编程一站式学习](http://docs.linuxtone.org/ebooks/C&CPP/c/index.html)
+[Linux C 编程 —— fcntl、ioctl和stat区别](https://blog.csdn.net/u011285208/article/details/90437128)
+[Linux中的虚拟设备/dev/null、/dev/zero、/dev/random和/dev/urandom](https://blog.csdn.net/sinat_26058371/article/details/86754683)

@@ -22,6 +22,7 @@ tags:
 ---
 在使用 git 上传本地代码的时候，我们希望有些部分能够不上传，比如通过 npm 安装的一些包或者数据库之类的资源，毕竟天朝网络感人。
 这时候一个叫 .gitignore 的文件就起作用了。
+<!--more-->
 
 在 Windows 上创建 . 开头的文件有一些困难，可以在要创建文件所在文件夹内按住`Shift`同时右键在此处打开命令窗口，然后输入
 <pre><code lass="plaintext">echo test> .gitignore</code></pre>

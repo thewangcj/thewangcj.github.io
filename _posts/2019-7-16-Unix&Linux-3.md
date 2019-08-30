@@ -23,6 +23,7 @@ tags:
 
 #### 3.1
 在我的 deepin 上，`d_name` 的长度是 256，有的系统定义成 1 是为了节省空间，使用时可以通过 `malloc()` 动态的分配空间，比如：
+<!--more-->
 <pre><code class="C">struct dirent
 {
    int len;
