@@ -14,7 +14,9 @@ header-img: ""
 catalog: false
 
 tags:
-    - Git WSL2 Windows
+    - Git 
+    - WSL2 
+    - Windows
 
 
 ---

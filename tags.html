@@ -1,0 +1,17 @@
+---
+layout: default
+permalink: /tags.html
+title: 标签
+author: thewangcj
+---
+<h1>tags</h1>
+<!-- for 循环内的 tag | first 是 tag 名，tag | last 则是对应的文章 list，所以 tag | last | size -->
+<ul>
+    {% for tag in site.tags %}
+    {% assign count = tag | last | size %}
+    {% assign fontsize = count | times: 4 %}
+    <li>
+        {{ tag | first }} ({{ count }})
+    </li>
+    {% endfor %}
+</ul>

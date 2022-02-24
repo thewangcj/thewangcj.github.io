@@ -1,12 +1,39 @@
 ---
-layout: post
-author: jill
+layout: default
+permalink: /archives.html
+title: 归档
+author: thewangcj
 ---
-A banana is an edible fruit – botanically a berry – produced by several kinds
-of large herbaceous flowering plants in the genus Musa.
 
-In some countries, bananas used for cooking may be called "plantains",
-distinguishing them from dessert bananas. The fruit is variable in size, color,
-and firmness, but is usually elongated and curved, with soft flesh rich in
-starch covered with a rind, which may be green, yellow, red, purple, or brown
-when ripe.
+<!-- counts 是一个数组里面存放着每年的文章数 -->
+{% assign count = 1 %}
+{% for post in site.posts reversed %}
+    {% assign year = post.date | date: '%Y' %}
+    {% assign nyear = post.next.date | date: '%Y' %}
+    {% if year != nyear %}
+        {% assign count = count | append: ', ' %}
+        {% assign counts = counts | append: count %}
+        {% assign count = 1 %}
+    {% else %}
+        {% assign count = count | plus: 1 %}
+    {% endif %}
+{% endfor %}
+
+<!-- 将 counts 逆序 -->
+{% assign counts = counts | split: ', ' | reverse %}
+{% assign i = 0 %}
+
+{% for post in site.posts %}
+    {% assign year = post.date | date: '%Y' %}
+    {% assign nyear = post.next.date | date: '%Y' %}
+    <!-- 本篇文章和下一篇文章年份不一样，显示年份及该年文章的数量 -->
+    {% if year != nyear %}
+    <h4>
+        {{ post.date | date: '%Y' }} ({{ counts[i] }})
+    </h4>
+        {% assign i = i | plus: 1 %}
+    {% endif %}
+    <div>
+        * {{ post.date | date: '%m-%d' }} <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
+{% endfor %}

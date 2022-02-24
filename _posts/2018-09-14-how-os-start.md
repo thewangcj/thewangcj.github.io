@@ -14,7 +14,8 @@ header-img: ""
 catalog: false
 
 tags:
-    - OS Assembly
+    - OS
+    - Assembly
 ---
 
 > “探索开机的秘密”
