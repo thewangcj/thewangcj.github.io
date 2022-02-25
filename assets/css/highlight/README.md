@@ -232,7 +232,7 @@ work for you refer to the [building documentation][6].
 **On Almond.** You need to use the optimizer to give the module a name. For
 example:
 
-```bash
+```shell
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 ```
 
@@ -295,7 +295,7 @@ There is also an npm package [@highlightjs/cdn-assets](https://www.npmjs.com/pac
 
 Highlight.js can also be used on the server. The package with all supported languages can be installed from NPM or Yarn:
 
-```bash
+```shell
 npm install highlight.js
 # or
 yarn add highlight.js
@@ -303,7 +303,7 @@ yarn add highlight.js
 
 Alternatively, you can build it from [source](#source):
 
-```bash
+```shell
 node tools/build.js -t node
 ```
 
