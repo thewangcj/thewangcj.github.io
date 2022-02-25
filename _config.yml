@@ -12,6 +12,14 @@ github_username:  thewangcj
 highlighter: rouge
 paginate: 6
 
+# jekyll-admin 设置
+jekyll_admin:
+  hidden_links:
+    - pages
+  homepage: "pages"
+
+show_drafts: true
+
 
 # Markdown settings
 # replace redcarpet to kramdown,
@@ -32,6 +40,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-admin
   
 excerpt_separator: <!--more-->
 
