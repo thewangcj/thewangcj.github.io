@@ -14,11 +14,10 @@ paginate: 6
 
 # jekyll-admin 设置
 jekyll_admin:
+  show_drafts: true
   hidden_links:
     - pages
   homepage: "pages"
-
-show_drafts: true
 
 
 # Markdown settings
