@@ -7,6 +7,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 # gem "rails"
 gem "jekyll"
 gem "wdm"
+gem 'rouge'
 
 group :jekyll_plugins do
     gem "jekyll-paginate"
@@ -15,3 +16,5 @@ group :jekyll_plugins do
   gem 'jekyll-seo-tag'
   gem 'jekyll-admin'
 end
+
+gem "kramdown-syntax-coderay", "~> 1.0"

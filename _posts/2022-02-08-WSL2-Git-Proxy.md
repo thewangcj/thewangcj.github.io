@@ -28,10 +28,12 @@ tags:
 <!--more-->
 最近升级了win11，WSL 也顺带着升级到了 WSL2，但是 WSL2 有一点非常蛋疼，IP地址不是固定的，就很难受，每次用 git 的时候设置 proxy 走 Windows 的代理都很麻烦，所以今天查了下资料，花了点时间写了个 Python 脚本来自动化的完成这个功能
 注意：该脚本依赖 IPy 这个模块，需要使用下面的命令手动安装一下
+
 ```bash
 sudo pip3 install IPy
 ```
 下面是脚本的内容：
+
 ```python
 # coding=utf-8
 
@@ -88,19 +90,25 @@ if __name__ == "__main__":
     config_git_proxy(windows_ip)
 
 ```
+
 你可以保存为 `xxx.py` 文件，然后
+
 ```bash
  python3 xxx.py
  ```
 执行完成后使用：
+
 ```bash
 git config --list
 ```
+
 可以查看 git 的代理是否设置成功。
 要想取消代理也很简单，可以使用如下命令：
+
 ```bash
 git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
+
 ---
 完。
