@@ -11,7 +11,10 @@ layout: default
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" />
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 
-<div id="main">{{ content }}</div>
+<div id="main">
+  {% include toc.html html=content class=toc%}
+  {{ content }}
+</div>
 
 <!-- <div>
 		<script type="text/javascript" src="http://www.douban.com/service/badge/thewangcj/?selection=latest&amp;picsize=small&amp;show=collection&amp;n=4&amp;cat=movie%7Cbook%7Cmusic&amp;columns=2"></script>
