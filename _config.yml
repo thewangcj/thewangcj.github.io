@@ -29,7 +29,8 @@ kramdown:
   input: GFM                            # use Github Flavored Markdown !important
   syntax_highlighter: rouge
   syntax_highlighter_opts:   # Rouge Options › https://github.com/jneen/rouge#full-options
-    css_class: highlight
+    # Use existing pygments syntax highlighting css
+    css_class: ‘highlight’
     tab_width: 2
     span:
       line_numbers: false
