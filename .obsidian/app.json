@@ -1,0 +1,9 @@
+{
+  "userIgnoreFilters": [
+    "vx_notebook/",
+    "_layouts/"
+  ],
+  "newFileLocation": "folder",
+  "newFileFolderPath": "_drafts",
+  "attachmentFolderPath": "assets/img"
+}
