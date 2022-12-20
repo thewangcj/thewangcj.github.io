@@ -1,0 +1,154 @@
+{
+  "main": {
+    "id": "3741f3d1f1d87be0",
+    "type": "split",
+    "children": [
+      {
+        "id": "58b242a8a78aa1e1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1c7773faf7ab7bdf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2022-11-8-obsidian.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6765c4d9447a0771",
+    "type": "split",
+    "children": [
+      {
+        "id": "f214cfe10147dcf7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6ac246cf1280d8ee",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "9ea69599e0aed143",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f4bd8ac56d1abd27",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "9adaf2c7e8dc88fe",
+    "type": "split",
+    "children": [
+      {
+        "id": "2ca2a7d3870f471c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6c4bbe6ab18cfa87",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "_posts/2022-11-8-obsidian.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "46be8bb97cfebdf4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "_posts/2022-11-8-obsidian.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "72e3f3c2b12cc77d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "f23c7a2e9c0ec6db",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "_posts/2022-11-8-obsidian.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "1c7773faf7ab7bdf",
+  "lastOpenFiles": [
+    "_posts/2022-7-07-history-notes.md",
+    "_posts/2022-11-8-obsidian.md",
+    "_posts/2022-02-08-WSL2-Git-Proxy.md",
+    "_posts/2021-9-30-libtasn1.md",
+    "_posts/2020-11-21-C++Primer06.md",
+    "_posts/2018-09-14-how-os-start.md",
+    "_posts/2018-01-30-python-encode.md",
+    "_posts/2022-6-28-teach-yourself-programming-in-ten-years-ch.md",
+    "_drafts/构建工具.md",
+    "_drafts/C 语言拾遗.md"
+  ]
+}
