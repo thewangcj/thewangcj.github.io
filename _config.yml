@@ -2,7 +2,7 @@ encoding: utf-8
 
 title: 王鲜申's blog
 email: thewangcj@gmail.com
-description: 执迷不悔
+description: "feedId:72112376501049344+userId:67379256151261184"
 
 baseurl: "" 
 url: https://thewangcj.github.io
@@ -19,6 +19,8 @@ jekyll_admin:
     - pages
   homepage: "posts"
 
+feed:
+  posts_limit: 5
 
 # Markdown settings
 # replace redcarpet to kramdown,
@@ -30,7 +32,7 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:   # Rouge Options › https://github.com/jneen/rouge#full-options
     # Use existing pygments syntax highlighting css
-    css_class: ‘highlight’
+    css_class: "highlight"
     tab_width: 2
     span:
       line_numbers: false
