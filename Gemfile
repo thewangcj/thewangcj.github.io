@@ -4,19 +4,17 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-# gem "rails"
-gem "jekyll"
-gem "wdm"
-gem 'rouge'
+gem 'jekyll', '~> 4.3'
 
 group :jekyll_plugins do
-    gem "jekyll-paginate"
+  gem "jekyll-paginate"
   gem 'jekyll-sitemap'
   gem 'jekyll-feed'
   gem 'jekyll-seo-tag'
-  gem 'jekyll-admin'
 end
 
-gem "kramdown-syntax-coderay", "~> 1.0"
+group :development do
+  gem 'jekyll-admin', '~> 0.12'
+end
 
-gem "webrick", "~> 1.8"
+gem "wdm", platforms: [:mingw, :mswin, :x64_mingw]

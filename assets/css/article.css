@@ -17,6 +17,27 @@ a {
 	border: 1px solid LightGrey;
 }
 
+.highlight {
+	margin: 1rem 0;
+	overflow-x: auto;
+	border-radius: 6px;
+}
+
+.highlight pre,
+pre code {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+	font-size: 0.9em;
+}
+
+.highlight table {
+	margin: 0;
+	border-collapse: collapse;
+}
+
+.highlight .rouge-gutter {
+	user-select: none;
+}
+
 p code {
 	display: inline-block;
 	padding-left: 4px;

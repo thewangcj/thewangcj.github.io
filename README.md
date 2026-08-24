@@ -2,7 +2,7 @@
 personal blog
 
 ## 环境要求：
-ruby >= 2.4
+Ruby >= 2.7（推荐使用项目的 `.ruby-version` 所指定版本）
 
 ## 本地启动方法
 更换 gem 源：
