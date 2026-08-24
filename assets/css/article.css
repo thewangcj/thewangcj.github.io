@@ -8,7 +8,8 @@ a {
 	text-decoration: none;
 }
 
-#main,#gitalk-container{
+#main,
+.comments {
 	margin: 1% 14%;
 	padding: 2% 8% 4% 8%;
 }

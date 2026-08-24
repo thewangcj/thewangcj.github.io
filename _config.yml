@@ -1,17 +1,19 @@
 encoding: utf-8
 
-title: 王鲜申's blog
+title: "王鲜申's blog"
 email: thewangcj@gmail.com
-description: "feedId:72112376501049344+userId:67379256151261184"
+description: "记录 C/C++、Linux、网络协议、工作与个人学习的博客"
+lang: zh-CN
+timezone: Asia/Shanghai
 
-baseurl: "" 
+baseurl: ""
 url: https://thewangcj.github.io
 twitter_username: thewangcj
-github_username:  thewangcj
+github_username: thewangcj
 
-highlighter: rouge
 paginate: 6
 
+# 仅用于本地 jekyll-admin，不参与生产站点输出
 jekyll_admin:
   show_drafts: true
   hidden_links:
@@ -21,16 +23,12 @@ jekyll_admin:
 feed:
   posts_limit: 5
 
-# Markdown settings
-# replace redcarpet to kramdown,
-# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
-# document: http://jekyllrb.com/docs/configuration/#kramdown
+# Markdown and syntax highlighting
 markdown: kramdown
 kramdown:
-  input: GFM                            # use Github Flavored Markdown !important
+  input: GFM
   syntax_highlighter: rouge
-  syntax_highlighter_opts:   # Rouge Options › https://github.com/jneen/rouge#full-options
-    # Use existing pygments syntax highlighting css
+  syntax_highlighter_opts:
     css_class: "highlight"
     tab_width: 2
     span:
@@ -40,16 +38,12 @@ kramdown:
       start_line: 1
 
 
-# Gems
-# from PR#40, to support local preview for Jekyll 3.0
-# gems: [jekyll-paginate]
-
 plugins:
   - jekyll-paginate
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  
+
 excerpt_separator: <!--more-->
 
 
